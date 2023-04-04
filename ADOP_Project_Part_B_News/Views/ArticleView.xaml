@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="ADOP_Project_Part_B_News.Views.ArticleView"
+                x:Name="NewsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Ladda om" Clicked="Button_Refresh_Clicked"/>
+            <ListView x:Name="NewsList"
+                      HasUnevenRows="true"
+                      ItemTapped="NewsList_HeadlineTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="StartAndExpand"
+                                         Orientation="Horizontal"
+                                         Padding="5,10,5,15">
+                                <StackLayout HorizontalOptions="Start" 
+                                             Orientation="Vertical"
+                                             Padding="3">
+                                    <Image Source="{Binding UrlToImage}"
+                                           HorizontalOptions="FillAndExpand"
+                                           WidthRequest="100"/>
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="Start"
+                                             Orientation="Vertical">
+                                    <Label HorizontalOptions="Start"
+                                           FontSize="12"
+                                           FontAttributes="Bold"
+                                                Text="{Binding DateTime.Date}"/>
+                                    <Label HorizontalOptions="Start"
+                                           FontSize="16"
+                                                Text="{Binding Title}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
